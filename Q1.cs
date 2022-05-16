@@ -11,19 +11,25 @@ namespace MethodsExercises
     {
         static void Main(string[] args)
         {
+            //Prompting the user to enter their salary
             Console.WriteLine("Enter your salary: ");
-            int salary = int.Parse(Console.ReadLine());
+            decimal salary = decimal.Parse(Console.ReadLine());
 
+            //Prompting the user to enter how many years they've been working
             Console.WriteLine("Enter the number of years you've worked: ");
             int years = int.Parse(Console.ReadLine());
 
-            int result = DisplayEarnings(salary, years);
-            Console.WriteLine($"Your total earnings are: {result}");
+            //Declaring a variable, result, to hold the value returned by the DisplayEarnings method
+            decimal result = DisplayEarnings(salary, years);
+
+            //Displaying the total to the user
+            Console.WriteLine($"Your total earnings are: EUR {result}");
         }
 
-        public static int DisplayEarnings(int employeeSalary, int yearsWorked)
+        //Method to calculate the users total earnings. Takes their salary and the number of years worked as inputs. Returns their total earnings
+        public static decimal DisplayEarnings(decimal employeeSalary, int yearsWorked)
         {
-            int totalEarnings = employeeSalary * yearsWorked;
+            decimal totalEarnings = employeeSalary * yearsWorked;
             return totalEarnings;
         }
     }

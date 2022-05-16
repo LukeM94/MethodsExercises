@@ -34,6 +34,7 @@ namespace MethodsExercises
             //Take the users selection
             string userSelection = Console.ReadLine();
 
+            //Declaring two variable to hold the two numbers input by the user
             int numOne;
             int numTwo;
 
@@ -51,7 +52,7 @@ namespace MethodsExercises
                     Console.WriteLine("Enter your second number: ");
                     numTwo = int.Parse(Console.ReadLine());
 
-                    int addResult = addNumbers(numOne, numTwo);
+                    int addResult = AddNumbers(numOne, numTwo);
                     Console.WriteLine($"The result is {addResult}");
                     break;
                 //Call the Subtract method
@@ -65,7 +66,7 @@ namespace MethodsExercises
                     Console.WriteLine("Enter your second number: ");
                     numTwo = int.Parse(Console.ReadLine());
 
-                    int subtractResult = subtractNumbers(numOne, numTwo);
+                    int subtractResult = SubtractNumbers(numOne, numTwo);
                     Console.WriteLine($"The result is {subtractResult}");
                     break;
                 //Call the Divide method
@@ -79,7 +80,7 @@ namespace MethodsExercises
                     Console.WriteLine("Enter your second number: ");
                     numTwo = int.Parse(Console.ReadLine());
 
-                    int divideResult = divideNumbers(numOne, numTwo);
+                    int divideResult = DivideNumbers(numOne, numTwo);
                     Console.WriteLine($"The result is {divideResult}");
                     break;
                 //Call the Multiply method
@@ -93,7 +94,7 @@ namespace MethodsExercises
                     Console.WriteLine("Enter your second number: ");
                     numTwo = int.Parse(Console.ReadLine());
 
-                    int multiplyResult = multiplyNumbers(numOne, numTwo);
+                    int multiplyResult = MultiplyNumbers(numOne, numTwo);
                     Console.WriteLine($"The result is {multiplyResult}");
                     break;
                 //Handling the users request to exit the calculator
@@ -108,25 +109,25 @@ namespace MethodsExercises
         }
 
         //Method to Add the numbers. Takes the users two numbers as parameters and returns them added
-        public static int addNumbers(int numOne, int numTwo)
+        public static int AddNumbers(int numOne, int numTwo)
         {
             return numOne + numTwo;
         }
 
         //Method to Subtract the numbers. Takes the users two numbers as parameters and returns them subtracted
-        public static int subtractNumbers(int numOne, int numTwo)
+        public static int SubtractNumbers(int numOne, int numTwo)
         {
             return numOne - numTwo;
         }
 
         //Method to Divide the numbers. Takes the users two numbers as parameters and returns them divided
-        public static int divideNumbers(int numOne, int numTwo)
+        public static int DivideNumbers(int numOne, int numTwo)
         {
             return numOne / numTwo;
         }
 
         //Method to Multiply the numbers. Takes the users two numbers as parameters and returns them multiplied
-        public static int multiplyNumbers(int numOne, int numTwo)
+        public static int MultiplyNumbers(int numOne, int numTwo)
         {
             return numOne * numTwo;
         }

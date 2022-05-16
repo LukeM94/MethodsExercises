@@ -14,6 +14,10 @@
 //The program requires the clerk to enter the following information:
 //·How many miles must the item be transported?
 //·What is the weight of the items being transported?
+//·Is this a regular customer?
+//The program should then display the Total amount for the bill. If a discount was applied show
+//how much the value of the discount is. Write appropriate methods to calculate the each cost.
+//Then add the cost to calculate total bill.
 
 using System;
 
@@ -23,79 +27,89 @@ namespace MethodsExercises
     {
         static void Main(string[] args)
         {
+            //Asking the user to input how many miles the item is being transported
             Console.WriteLine("Enter how many miles must the item be transported: ");
             double transportMiles = double.Parse(Console.ReadLine());
 
+            //Asking the user to enter the weight of the item being transported
             Console.WriteLine("Enter the weight of the item being transported: ");
             double itemWeight = double.Parse(Console.ReadLine());
 
+            //Asking the user to enter whether this is a regular customer by typing "Yes" OR "No"
             Console.WriteLine("Is this a regular customer? Yes/No");
             string regCustomer = Console.ReadLine();
 
-            double outputTotalCost = calculateItemCost(transportMiles, itemWeight);
+            //Calling the CalculateItemCost method, with the miles to be transported and item weight as inputs
+            //Storing the result in the outputTotalCost variable
+            double outputTotalCost = CalculateItemCost(transportMiles, itemWeight);
 
+            //If the customer is a regular, then we call the CalculateDiscount method on the outputTotalCost
             if (regCustomer == "Yes")
             {
-                outputTotalCost = calculateDiscount(outputTotalCost);
+                outputTotalCost = CalculateDiscount(outputTotalCost);
             }
 
+            //Displaying the total cost to the user
             Console.WriteLine("The total cost is: EUR {0}", outputTotalCost);
         }
 
-        //Function to calculate the discount if the customer's regular
-        public static double calculateDiscount(double outputTotalCost)
+        //Method to calculate the discount if the customer's regular
+        public static double CalculateDiscount(double outputTotalCost)
         {
             double discount = (outputTotalCost / 100) * 7.5;
             outputTotalCost = outputTotalCost - discount;
+            Console.WriteLine("The discount is: EUR {0}", discount);
             return outputTotalCost;
         }
 
-        //Function to calculate the item cost
-        public static double calculateItemCost(double transportMiles, double itemWeight)
+        //Method to calculate the item cost
+        public static double CalculateItemCost(double transportMiles, double itemWeight)
         {
-            double costPerMile = 0.0;
-            double costPerKg = 0.0;
+            //Declaring & initialising the variables used in the IF statements below
+            double transportMilesCost = 0.0;
+            double remainder = 0.0;
+            double weightRemainder = 0.0;
+            double itemWeightCost = 0.0;
 
+            //IF statement to determine the price to charge per mile
             if (transportMiles >= 0 && transportMiles <= 100)
             {
-                costPerMile = 0.50;
-
+                transportMilesCost = transportMiles * 0.5;
             }
             else if (transportMiles >= 101 && transportMiles <= 200)
             {
-                costPerMile = 0.40;
-
+                remainder = transportMiles - 100;
+                transportMilesCost = (remainder * 0.4) + 50;
             }
             else if (transportMiles >= 201)
             {
-                costPerMile = 0.30;
-
+                remainder = transportMiles - 200;
+                transportMilesCost = (remainder * 0.3) + 90;
             }
 
+            //IF statement to determine the price to charge for the item weight
             if (itemWeight >= 0 && itemWeight <= 100)
             {
-                costPerKg = 0.33;
+                itemWeightCost = itemWeight * 0.33;
 
             }
             else if (itemWeight >= 101 && itemWeight <= 200)
             {
-                costPerKg = 0.23;
+                weightRemainder = itemWeight - 100;
+                itemWeightCost = (weightRemainder * 0.23) + 33;
 
             }
             else if (itemWeight >= 201)
             {
-                costPerKg = 0.17;
+                weightRemainder = itemWeight - 200;
+                itemWeightCost = (weightRemainder * 0.17) + 56;
 
             }
 
-            double totalCostPerMile;
-            totalCostPerMile = transportMiles * costPerMile;
+            //Assigning the total cost to the totalCost variable
+            double totalCost = transportMilesCost + itemWeightCost;
 
-            double totalCostPerKg;
-            totalCostPerKg = itemWeight * costPerKg;
-
-            double totalCost = totalCostPerMile + totalCostPerKg;
-
+            //Returning the total cost
             return totalCost;
         }
     }

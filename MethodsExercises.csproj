@@ -11,7 +11,7 @@
     <Compile Remove="Q3.cs" />
     <Compile Remove="Q4.cs" />
     <Compile Remove="Q5.cs" />
-    <Compile Remove="Q7.cs" />
+    <Compile Remove="Q6.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +20,7 @@
     <None Include="Q3.cs" />
     <None Include="Q4.cs" />
     <None Include="Q5.cs" />
-    <None Include="Q7.cs" />
+    <None Include="Q6.cs" />
   </ItemGroup>
 
 </Project>
