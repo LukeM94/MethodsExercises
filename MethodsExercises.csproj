@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Q1.cs" />
+    <Compile Remove="Q2.cs" />
+    <Compile Remove="Q3.cs" />
+    <Compile Remove="Q4.cs" />
+    <Compile Remove="Q5.cs" />
+    <Compile Remove="Q7.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Q1.cs" />
+    <None Include="Q2.cs" />
+    <None Include="Q3.cs" />
+    <None Include="Q4.cs" />
+    <None Include="Q5.cs" />
+    <None Include="Q7.cs" />
+  </ItemGroup>
+
+</Project>
